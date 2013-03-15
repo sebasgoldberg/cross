@@ -1,0 +1,12 @@
+{% extends 'correo/base.txt' %}
+{% load i18n %}
+
+{% block mensaje %}
+{%blocktrans with first_name=user.first_name dominio=ambiente.dominio username=user.username%}Oi {{first_name}}!
+
+Você tem uma nova conta em http://{{dominio}}/
+
+Você poderá ingressar a sua nova conta com seu usuário ({{username}}) e sua chave.
+
+Se você não lembra sua chave, poderá gerá-la de novo aqui: http://{{dominio}}/usuario/reiniciar/clave/{%endblocktrans%}
+{% endblock %}
