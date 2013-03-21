@@ -19,6 +19,8 @@ class Mail(EmailMultiAlternatives):
     reply_to=self.get_reply_to()
     if reply_to:
       _headers = {'Reply-To': reply_to}
+    else:
+      _headers = {}
     
     self.mensaje = EmailMultiAlternatives(
       _asunto,

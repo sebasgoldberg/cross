@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-14 14:17-0700\n"
+"POT-Creation-Date: 2013-03-16 10:39-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,6 +87,34 @@ msgstr "No recuerdo mi clave"
 msgid "Trocar Senha"
 msgstr "Modificar Clave"
 
+#: templates/usuario/dropdown_menu.html:3
+msgid "Cuenta "
+msgstr ""
+
+#: templates/usuario/dropdown_menu.html:6
+msgid "Mi Cuenta"
+msgstr ""
+
+#: templates/usuario/dropdown_menu.html:7
+msgid "Cambiar Clave"
+msgstr ""
+
+#: templates/usuario/dropdown_menu.html:8
+msgid "Salir"
+msgstr ""
+
+#: templates/usuario/dropdown_menu.html:10
+msgid "Registro"
+msgstr "Registro"
+
+#: templates/usuario/dropdown_menu.html:11
+msgid "Entrar"
+msgstr ""
+
+#: templates/usuario/registro.html:6
+msgid "Cadastro"
+msgstr "Registro"
+
 #: templates/usuario/reiniciar_clave.html:6
 msgid "Gerar Senha"
 msgstr "Generar Clave"
@@ -127,8 +155,7 @@ msgid ""
 msgstr ""
 "Hola %(first_name)s!\n"
 "\n"
-"Usted tiene una nueva cuenta en http://%(dominio)s/"
-"\n"
+"Usted tiene una nueva cuenta en http://%(dominio)s/\n"
 "Usted podrá ingresar a su nueva cuenta con su usuario (%(username)s) y su "
 "clave.\n"
 "\n"

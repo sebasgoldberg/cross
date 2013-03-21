@@ -1,9 +1,9 @@
 Instalación
 -----------
 
-* En dist-packages crear la carpeta iamsoft.
-* En carpeta iamsoft crear archivo __init__.py.
-* En carpeta iamsoft crear carpeta cross.
+* En dist-packages crear la carpeta iampacks.
+* En carpeta iampacks crear archivo __init__.py.
+* En carpeta iampacks crear carpeta cross.
 * Hacer el pull del proyecto.
 
 Instalación y uso de aplicaciones

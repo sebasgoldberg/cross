@@ -1,6 +1,6 @@
 # coding=utf-8
 from django.contrib import admin
-from iamsoft.cross.direccion.models import Direccion
+from iampacks.cross.direccion.models import Direccion
 from django.contrib.admin import SimpleListFilter
 from cities_light.models import City, Region, Country
 from django.utils.translation import ugettext as _
@@ -9,14 +9,14 @@ class FieldDireccionModelListFilter(SimpleListFilter):
   """
   Dado el siguiente modelo:
 
-    from iamsoft.cross.direccion.models import Direccion
+    from iampacks.cross.direccion.models import Direccion
     class DireccionProductora(Direccion):
       productora = models.ForeignKey(Productora, verbose_name=ugettext_lazy(u'Produtora'))
 
   Supongamos que en el listado del modelo Productora queremos filtrar por país,
   region y ciudad, simplemente deberíamos realizar lo siguiente:
   
-    from iamsoft.cross.direccion.admin import CiudadDireccionModelListFilter
+    from iampacks.cross.direccion.admin import CiudadDireccionModelListFilter
     class ProductoraAdmin(admin.ModelAdmin):
       list_filter = (CiudadDireccionProductoraListFilter,
         EstadoDireccionProductoraListFilter, CiudadDireccionProductoraListFilter)

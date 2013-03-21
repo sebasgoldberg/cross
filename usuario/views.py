@@ -7,14 +7,14 @@ from django.contrib.auth.models import User
 from django.template import loader
 from django.contrib import messages
 from django.template import RequestContext
-from iamsoft.cross.usuario.forms import UsuarioSetPasswordForm, UsuarioPasswordResetForm, UserCreateForm
+from iampacks.cross.usuario.forms import UsuarioSetPasswordForm, UsuarioPasswordResetForm, UserCreateForm
 from django.utils.translation import ugettext as _
 from django.utils.translation import ugettext_lazy
 from django.contrib.auth import logout
 from django.contrib.auth import authenticate, login
-from iamsoft.cross.usuario.signals import usuario_after_register_before_redirect 
+from iampacks.cross.usuario.signals import usuario_after_register_before_redirect 
 from django.conf import settings
-from iamsoft.cross.correo.mail import Mail
+from iampacks.cross.correo.mail import Mail
 
 @login_required
 def cambio_clave(request):
@@ -75,10 +75,12 @@ def import_class(cl):
   return c
 
 def get_mail_class():
-  if settings.CORREO_CLASS:
-    mail_class=import_class(settings.CORREO_CLASS)
-  else:
-    mail_class=Mail
+  mail_class=Mail
+  try:
+    if settings.CORREO_CLASS:
+      mail_class=import_class(settings.CORREO_CLASS)
+  except AttributeError:
+    pass
   return mail_class
 
 def registro(request):

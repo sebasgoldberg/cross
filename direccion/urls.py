@@ -5,7 +5,7 @@ from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('iamsoft.cross.direccion.views',
+urlpatterns = patterns('iampacks.cross.direccion.views',
     # Examples:
     # url(r'^$', 'alternativa.views.home', name='home'),
     # url(r'^alternativa/', include('alternativa.foo.urls')),

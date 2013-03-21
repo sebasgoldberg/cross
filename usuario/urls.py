@@ -1,11 +1,13 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
+from iampacks.cross.usuario.forms import UsuarioAuthenticationForm
+from django.contrib.auth.views import login
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('iamsoft.cross.usuario.views',
+urlpatterns = patterns('iampacks.cross.usuario.views',
     # Examples:
     # url(r'^$', 'alternativa.views.home', name='home'),
     # url(r'^alternativa/', include('alternativa.foo.urls')),
@@ -18,5 +20,6 @@ urlpatterns = patterns('iamsoft.cross.usuario.views',
     url(r'^reiniciar/clave/$', 'reiniciar_clave'),
     url(r'^logout/$', 'logout_view'),
     url(r'^registro/$', 'registro'),
+    url(r'^login/$', login , {'authentication_form':UsuarioAuthenticationForm}),
 )
 
