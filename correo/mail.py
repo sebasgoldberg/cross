@@ -36,3 +36,12 @@ class Mail(EmailMultiAlternatives):
 
   def send(self):
     self.mensaje.send()
+
+  @staticmethod
+  def get_email_admins():
+    """
+    Obtiene un lista con los emails de los administradores definidos 
+    en settings.
+    """
+    return [ mail for _, mail in settings.ADMINS ]
+
