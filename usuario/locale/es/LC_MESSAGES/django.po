@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-16 10:39-0700\n"
+"POT-Creation-Date: 2013-03-31 05:30-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,16 +63,16 @@ msgstr "Nueva clave generada con éxito"
 msgid "Mail com nova senha enviado para %s"
 msgstr "Mail con nueva clave enviada para %s"
 
-#: views.py:92
-msgid "Sua conta esta creada"
+#: views.py:94
+msgid "Sua conta esta criada"
 msgstr "Su cuenta se encuentra creada"
 
-#: views.py:100
+#: views.py:102
 msgid "Registro realizado com sucesso!"
 msgstr "Registro realizado con éxito!"
 
-#: views.py:101
-msgid "Temos enviado para seu email dados da sua nova conta."
+#: views.py:103
+msgid "Enviamos para seu email dados da sua nova conta."
 msgstr "Hemos enviado para su e-mail datos de su nueva cuenta."
 
 #: templates/registration/login.html:12

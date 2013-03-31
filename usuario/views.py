@@ -91,7 +91,7 @@ def registro(request):
       user = authenticate(username=request.POST['username'], password=request.POST['password1'])
       login(request,user)
 
-      asunto = _(u'Sua conta esta creada')
+      asunto = _(u'Sua conta esta criada')
       template = loader.get_template('usuario/mail/creacion.txt')
       context = RequestContext(request)
       text_content = template.render(context)
@@ -100,7 +100,7 @@ def registro(request):
       msg.send()
 
       messages.success(request,_(u'Registro realizado com sucesso!'))
-      messages.info(request,_(u'Temos enviado para seu email dados da sua nova conta.'))
+      messages.info(request,_(u'Enviamos para seu email dados da sua nova conta.'))
       usuario_after_register_before_redirect.send_robust(sender=user, request=request)
 
       next_page = form.cleaned_data['next_page']
