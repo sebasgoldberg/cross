@@ -50,9 +50,6 @@ def validate_unique_mail(value):
     raise ValidationError(_(u'O email ingresado ja existe'))
 
 class UserCreateForm(UserCreationForm):
-  email = forms.EmailField(required=True, validators=[validate_unique_mail])
-  first_name = forms.CharField( max_length=30, required=True, label=_('Nome'))
-  last_name = forms.CharField( max_length=30, required=True, label=_('Sobrenome'))
   next_page = forms.CharField(widget=forms.HiddenInput,required=False)
 
   class Meta:
@@ -65,4 +62,7 @@ class UserCreateForm(UserCreationForm):
     self.helper.form_method = 'post'
     self.helper.form_action = '/usuario/registro/'
     self.helper.add_input(Submit('submit',_('Registrar')))
-    return super(UserCreateForm,self).__init__(*args, **kwargs)
+    super(UserCreateForm,self).__init__(*args, **kwargs)
+    self.fields['email'].required=True
+    self.fields['first_name'].required=True
+    self.fields['last_name'].required=True

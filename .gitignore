@@ -3,3 +3,4 @@ tags
 *.swo
 *.pyc
 .coverage
+estatico/static
