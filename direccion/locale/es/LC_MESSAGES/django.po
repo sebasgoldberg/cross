@@ -24,7 +24,7 @@ msgstr "Pais"
 
 #: admin.py:124 forms.py:37 models.py:25
 msgid "Estado"
-msgstr "Estado"
+msgstr "Provincia"
 
 #: admin.py:147 forms.py:38 models.py:26
 msgid "Cidade"
