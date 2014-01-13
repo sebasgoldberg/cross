@@ -1,8 +1,8 @@
 # coding=utf-8
 from django.contrib import admin
-from iampacks.cross.direccion.models import Direccion
+from iampacks.cross.direccion.models import Direccion, Ciudad
 from django.contrib.admin import SimpleListFilter
-from cities_light.models import City, Region, Country
+from cities_light.models import Region, Country
 from django.utils.translation import ugettext as _
 
 class FieldDireccionModelListFilter(SimpleListFilter):
@@ -148,7 +148,7 @@ class CiudadDireccionModelListFilter(FieldDireccionModelListFilter):
   # Parameter for the filter that will be used in the URL query.
   parameter_name = 'direccion_ciudad'
   direccion_field = 'ciudad'
-  field_model = City
+  field_model = Ciudad
 
   def lookups(self, request, model_admin):
     """
@@ -165,6 +165,12 @@ class CiudadDireccionModelListFilter(FieldDireccionModelListFilter):
 class BaseDireccionInline(admin.StackedInline):
   fieldsets=[
     (None, { 
-      'fields':[ ('pais', 'estado', 'ciudad', ), ('barrio', 'direccion',), ('codigo_postal',)]}),
+      #'fields':[ ('pais', 'estado', 'ciudad', ), ('barrio', 'direccion',), ('codigo_postal',)]}),
+      'fields':[ ('ciudad', ), ('barrio', 'direccion',), ('codigo_postal',)]}),
     ]
+  raw_id_fields = ('ciudad',)
+  autocomplete_lookup_fields = {
+    'fk': ['ciudad'],
+    }
 
+admin.site.register(Ciudad)

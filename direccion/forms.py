@@ -1,12 +1,15 @@
 from django.forms.widgets import Select
 from django.forms import ModelForm, ModelChoiceField
 from django.forms.util import ErrorList
-from cities_light.models import Country, Region, City
+from cities_light.models import Country, Region
+from iampacks.cross.direccion.models import Ciudad
 from iampacks.cross.direccion.models import COUNTRY_FILTER
 from django.utils.translation import ugettext as _
 
 class BaseDireccionForm(ModelForm):
-
+  pass
+  
+class BaseDireccionFormOld(ModelForm):
   def get_queryset(self,data,instance,prefix,campo,query_field,query_model):
 
     if prefix:
@@ -31,7 +34,7 @@ class BaseDireccionForm(ModelForm):
 
     queryset_pais = Country.objects.filter(code2__in=COUNTRY_FILTER)
     queryset_region = self.get_queryset(data,instance,prefix,'pais','country',Region)
-    queryset_ciudad = self.get_queryset(data,instance,prefix,'estado','region',City)
+    queryset_ciudad = self.get_queryset(data,instance,prefix,'estado','region',Ciudad)
 
     self.fields['pais'] = ModelChoiceField(queryset=queryset_pais,widget=Select(attrs={'onchange':'change_pais(this)'}), label=_(u'Pais'))
     self.fields['estado'] = ModelChoiceField(queryset=queryset_region,widget=Select(attrs={'onchange':'change_estado(this)'}), label=_(u'Estado'))
