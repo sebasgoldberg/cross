@@ -164,6 +164,7 @@ class CiudadDireccionModelListFilter(FieldDireccionModelListFilter):
 
 class BaseDireccionInline(admin.StackedInline):
   fieldsets=[
-    (None, { 'fields':[ ('pais', 'estado', 'ciudad', ), ('barrio', 'direccion', 'codigo_postal')]}),
+    (None, { 
+      'fields':[ ('pais', 'estado', 'ciudad', ), ('barrio', 'direccion',), ('codigo_postal',)]}),
     ]
 
