@@ -30,7 +30,7 @@ class BaseDireccionFormRelated(ModelForm):
     initial=None, error_class=ErrorList, label_suffix=':',
     empty_permitted=False, instance=None):
 
-    super(BaseDireccionForm,self).__init__(data, files, auto_id, prefix, initial, error_class, label_suffix, empty_permitted, instance)
+    super(BaseDireccionFormRelated,self).__init__(data, files, auto_id, prefix, initial, error_class, label_suffix, empty_permitted, instance)
 
     queryset_pais = Country.objects.filter(code2__in=COUNTRY_FILTER)
     queryset_region = self.get_queryset(data,instance,prefix,'pais','country',Region)
