@@ -9,7 +9,7 @@ from django.utils.translation import ugettext as _
 class BaseDireccionForm(ModelForm):
   pass
   
-class BaseDireccionFormOld(ModelForm):
+class BaseDireccionFormRelated(ModelForm):
   def get_queryset(self,data,instance,prefix,campo,query_field,query_model):
 
     if prefix:
