@@ -5,7 +5,8 @@ from django.utils.translation import ugettext_lazy
 class MailForm(forms.Form):
   # @todo Agregar múltiples destinatarios.
   destinatarios=forms.CharField(widget=forms.Textarea, help_text=ugettext_lazy(u'Adicione os destinatarios separados por ",", ";" ou salto de linea'))
-  asunto=forms.CharField()
+  # @todo Ver de alargar el input
+  asunto=forms.CharField(widget=forms.TextInput(attrs={'class':'asunto_mail'}))
 
   def get_destinatarios(self):
     destinatarios_text = self.cleaned_data['destinatarios']
