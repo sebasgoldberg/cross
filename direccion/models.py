@@ -46,6 +46,8 @@ class Direccion(models.Model):
     return "%s, %s, %s, %s" % (self.direccion, self.barrio, self.ciudad, self.codigo_postal)
 
   def save(self, *args, **kwargs):
-    self.estado = self.ciudad.region
-    self.pais = self.estado.country
+    if self.ciudad:
+      self.estado = self.ciudad.region
+    if self.estado:
+      self.pais = self.estado.country
     super(Direccion, self).save(*args, **kwargs)
