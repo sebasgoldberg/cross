@@ -45,12 +45,6 @@ class Command(BaseCommand):
     except Exception:
       self.stdout.write('%s\n'%traceback.format_exc())
 
-    try:
-      call_command('syncdb')
-      call_command('migrate')
-    except Exception:
-      self.stdout.write('%s\n'%traceback.format_exc())
-
   def handle(self,*args,**options):
 
     self.crear_servicio()
