@@ -54,8 +54,17 @@ class Command(BaseCommand):
 
     self.__callScript([
       'sudo',
-      'make-ssl-cert',
-      '/usr/share/ssl-cert/ssleay.cnf',
+      'openssl',
+      'req',
+      '-x509',
+      '-nodes',
+      '-days',
+      '3650',
+      '-newkey',
+      'rsa:2048',
+      '-keyout',
+      self.get_certificate_file_name(),
+      '-out',
       self.get_certificate_file_name()
       ])
 
@@ -128,6 +137,13 @@ class Command(BaseCommand):
       self.enable_apache2_site()
     except Exception:
       self.stdout.write('%s\n'%traceback.format_exc())
+
+    self.__callScript([
+      'sudo',
+      'service',
+      'apache2',
+      'reload'
+      ])
 
   def handle(self,*args,**options):
 
