@@ -48,7 +48,6 @@ class Command(BaseCommand):
     try:
       call_command('syncdb')
       call_command('migrate')
-      call_command('syncdb',all=True) # Necesario para que se carguen los permisos
     except Exception:
       self.stdout.write('%s\n'%traceback.format_exc())
 
