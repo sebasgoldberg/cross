@@ -7,6 +7,7 @@ from django.utils.translation import ugettext as _
 from django.utils.translation import ugettext_lazy
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+from captcha.fields import CaptchaField
 
 class UsuarioAuthenticationForm(AuthenticationForm):
 
@@ -36,6 +37,7 @@ class UsuarioSetPasswordForm(SetPasswordForm):
 
 class UsuarioPasswordResetForm(PasswordResetForm):
   next_page = forms.CharField(widget=forms.HiddenInput,required=False)
+  captcha = CaptchaField()
   def __init__(self, *args, **kwargs):
     self.helper = FormHelper()
     self.helper.form_class = 'uniForm'
@@ -51,6 +53,7 @@ def validate_unique_mail(value):
 
 class UserCreateForm(UserCreationForm):
   next_page = forms.CharField(widget=forms.HiddenInput,required=False)
+  captcha = CaptchaField()
 
   class Meta:
     model = User
