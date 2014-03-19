@@ -3,8 +3,8 @@
 	ServerAdmin sebas.goldberg@gmail.com
 	ServerName {{DOMINIO}}:{{PUERTO_HTTPS}}
 
-    RewriteEngine On
-    RewriteRule ^(/uploads/.*)$ http://{{DOMINIO}}:{{PUERTO_HTTP}}$1
+    #RewriteEngine On
+    #RewriteRule ^(/uploads/.*)$ http://{{DOMINIO}}:{{PUERTO_HTTP}}$1
 
     WSGIDaemonProcess {{ID}}_ssl python-path={{WD}}
     WSGIProcessGroup {{ID}}_ssl
@@ -13,13 +13,6 @@
     Alias /media/ {{MEDIA_ROOT}}/
 
     <Directory {{MEDIA_ROOT}}>
-    Order deny,allow
-    Allow from all
-    </Directory>
-
-    Alias /static/admin/ /usr/local/lib/python2.7/dist-packages/grappelli/static/admin/
-
-    <Directory /usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin >
     Order deny,allow
     Allow from all
     </Directory>

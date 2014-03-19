@@ -15,14 +15,6 @@
     Allow from all
     </Directory>
 
-
-    Alias /static/admin/ /usr/local/lib/python2.7/dist-packages/grappelli/static/admin/
-
-    <Directory /usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin >
-    Order deny,allow
-    Allow from all
-    </Directory>
-
     Alias /static/ {{STATIC_ROOT}}/
 
     <Directory {{STATIC_ROOT}} >
