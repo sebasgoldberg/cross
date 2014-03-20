@@ -52,21 +52,12 @@ class Command(BaseCommand):
 
   def create_certificate(self):
 
-    self.__callScript([
-      'sudo',
-      'openssl',
-      'req',
-      '-x509',
-      '-nodes',
-      '-days',
-      '3650',
-      '-newkey',
-      'rsa:2048',
-      '-keyout',
-      self.get_certificate_file_name(),
-      '-out',
-      self.get_certificate_file_name()
-      ])
+    self.__callScript(
+      'echo -e "\\n\\n\\n\\n\\n\\n\\n" | sudo openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout "%s" -out "%s"' % (
+        self.get_certificate_file_name(),
+        self.get_certificate_file_name(),
+        ),
+      shell=True)
 
   def create_apache2_conf(self):
 
