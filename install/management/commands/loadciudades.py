@@ -6,8 +6,9 @@ from django.template import loader
 from django.template import Context
 import logging
 import traceback
+from iampacks.cross.install.management.commands.dbcreate import InstallCommand
 
-class Command(BaseCommand):
+class Command(InstallCommand):
 
   help=u'Carga los datos de ciudades.'
 
@@ -18,7 +19,7 @@ class Command(BaseCommand):
     import MySQLdb 
     from getpass import getpass
     
-    mysql_root_password = getpass("Enter mysql root password: ")
+    mysql_root_password = self.get_mysql_root_password()
 
     mysql_connection = MySQLdb.connect(
       'localhost', 

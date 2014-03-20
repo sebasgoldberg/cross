@@ -7,7 +7,16 @@ from django.template import Context
 import logging
 import traceback
 
-class Command(BaseCommand):
+class InstallCommand(BaseCommand):
+
+  def get_mysql_root_password(self):
+    try:
+      return settings.AMBIENTE.db.root.password
+    except:
+      self.stdout.write('Was not possible to get the root mysql password from settings.AMBIENTE.\n')
+      return getpass("Enter mysql root password: ")
+
+class Command(InstallCommand):
 
   help=u'Instala la agencia y la deja lista para usar.'
 
@@ -15,8 +24,8 @@ class Command(BaseCommand):
 
     import MySQLdb 
     from getpass import getpass
-    
-    mysql_root_password = getpass("Enter mysql root password: ")
+
+    mysql_root_password = self.get_mysql_root_password()
 
     mysql_connection = MySQLdb.connect(
       'localhost', 
