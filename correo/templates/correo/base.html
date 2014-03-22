@@ -1,4 +1,9 @@
 {% block mensaje %}
+  {%if cuerpo%}
+<pre>
+{{cuerpo}}
+</pre>
+  {%endif%}
 {% endblock %}
 
 {% block firma %}

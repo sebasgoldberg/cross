@@ -8,6 +8,8 @@ class MailForm(forms.Form):
   # @todo Ver de alargar el input
   asunto=forms.CharField(widget=forms.TextInput(attrs={'class':'asunto_mail'}))
 
+  cuerpo=forms.CharField(widget=forms.Textarea, help_text=ugettext_lazy(u'Cuerpo del mail'))
+
   def get_destinatarios(self):
     destinatarios_text = self.cleaned_data['destinatarios']
     destinatarios = []
@@ -15,4 +17,3 @@ class MailForm(forms.Form):
       if destinatario != '':
         destinatarios+=[destinatario]
     return destinatarios
-  
