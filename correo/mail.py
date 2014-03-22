@@ -10,7 +10,7 @@ class Mail(EmailMultiAlternatives):
   def get_reply_to(self):
     return None
 
-  def __init__(self,asunto, cuerpo_de_texto, destinatarios,ccs=None):
+  def __init__(self,asunto, cuerpo_de_texto, destinatarios,ccs=None,bccs=None):
 
     if not settings.AMBIENTE.email.user:
       raise Exception(u'No se ha definido settings.AMBIENTE.email.user')
@@ -28,7 +28,8 @@ class Mail(EmailMultiAlternatives):
       settings.AMBIENTE.email.user,
       destinatarios,
       headers = _headers,
-      cc=ccs
+      cc=ccs,
+      bcc=bccs
     )
 
   def set_html_body(self,html_content):
