@@ -6,6 +6,9 @@ from django.template import loader
 from django.template import Context
 import logging
 import traceback
+import MySQLdb 
+from getpass import getpass
+from django.core.management import call_command
 
 class InstallCommand(BaseCommand):
 
@@ -21,9 +24,6 @@ class Command(InstallCommand):
   help=u'Instala la agencia y la deja lista para usar.'
 
   def crear_base_datos(self):
-
-    import MySQLdb 
-    from getpass import getpass
 
     mysql_root_password = self.get_mysql_root_password()
 
@@ -46,8 +46,6 @@ class Command(InstallCommand):
     mysql_connection.close()
 
   def crear_servicio(self):
-
-    from django.core.management import call_command
 
     try:
       self.crear_base_datos()
