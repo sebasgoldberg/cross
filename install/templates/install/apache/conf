@@ -10,17 +10,22 @@
     WSGIProcessGroup {{ID}}
     WSGIScriptAlias / {{WSGI_DIR}}/wsgi.py
 
+    {% if MEDIA_ROOT %}
     <Directory {{MEDIA_ROOT}}>
     Order deny,allow
     Allow from all
     </Directory>
+    {% endif %}
 
+
+    {% if STATIC_ROOT %}
     Alias /static/ {{STATIC_ROOT}}/
 
     <Directory {{STATIC_ROOT}} >
     Order deny,allow
     Allow from all
     </Directory>
+    {% endif %}
 
     <Directory {{WSGI_DIR}} >
         <Files wsgi.py>
