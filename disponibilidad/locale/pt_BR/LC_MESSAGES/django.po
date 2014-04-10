@@ -64,7 +64,7 @@ msgstr "Hora até"
 
 #: models.py:29
 msgid "La hora desde debe ser menor a la hora hasta."
-msgstr "A hora de debe ser menor que a hora até"
+msgstr "A hora de deve ser menor que a hora até"
 
 #: models.py:33
 msgid "Disponibilidad"

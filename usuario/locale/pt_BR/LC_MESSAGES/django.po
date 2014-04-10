@@ -20,7 +20,7 @@ msgstr ""
 
 #: forms.py:19 templates/registration/login.html:8
 msgid "Ingresar"
-msgstr ""
+msgstr "Entrar"
 
 #: forms.py:34
 msgid "Trocar"
