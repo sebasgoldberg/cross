@@ -21,10 +21,10 @@ class Command(BaseCommand):
     return settings.AMBIENTE.dominio
 
   def get_apache_site(self):
-    return settings.AMBIENTE.site_id
+    return '%s.conf'%settings.AMBIENTE.site_id
 
   def get_apache_ssl_site(self):
-    return '%s-ssl' % settings.AMBIENTE.site_id
+    return '%s-ssl.conf' % settings.AMBIENTE.site_id
 
   def enable_apache2_site(self):
 
