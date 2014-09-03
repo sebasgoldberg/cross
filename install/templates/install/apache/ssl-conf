@@ -14,8 +14,9 @@
     Alias /media/ {{MEDIA_ROOT}}/
 
     <Directory {{MEDIA_ROOT}}>
-    Order deny,allow
-    Allow from all
+      Options All
+      AllowOverride All
+      Require all granted
     </Directory>
     {% endif %}
 
@@ -23,15 +24,17 @@
     Alias /static/ {{STATIC_ROOT}}/
 
     <Directory {{STATIC_ROOT}} >
-    Order deny,allow
-    Allow from all
+      Options All
+      AllowOverride All
+      Require all granted
     </Directory>
     {% endif %}
 
     <Directory {{WSGI_DIR}} >
         <Files wsgi.py>
-            Order allow,deny
-            Allow from all
+          Options All
+          AllowOverride All
+          Require all granted
         </Files>
     </Directory>
 
