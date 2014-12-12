@@ -39,6 +39,7 @@ class Command(InstallCommand):
       cursor.execute('create database %s character set utf8'%settings.AMBIENTE.db.name)
       cursor.execute("create user '%s'@'localhost' identified by '%s'" % (settings.AMBIENTE.db.user, settings.AMBIENTE.db.password))
       cursor.execute("grant all on %s.* to %s" % (settings.AMBIENTE.db.name, settings.AMBIENTE.db.user))
+      cursor.execute("grant all on test_%s.* to %s" % (settings.AMBIENTE.db.name, settings.AMBIENTE.db.user))
       mysql_connection.commit()
     except:
       mysql_connection.rollback()
